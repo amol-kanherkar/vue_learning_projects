@@ -3,9 +3,9 @@
     <header>
       <h1>My Friends</h1>
     </header>
-    <add-friend @add-new-friend="addNewFriend"></add-friend>
+    <add-contact @add-new-friend="addNewFriend"></add-contact>
     <ul>
-      <friend-contact
+      <contact-details
         v-for="friend in friends"
         :key="friend.id"
         :id="friend.id"
@@ -15,7 +15,7 @@
         :is-favourite="friend.isfavourite"
         @favourite-action="favouriteAction"
         @delete-contact="deleteContact"
-      ></friend-contact>
+      ></contact-details>
     </ul>
   </section>
 </template>
