@@ -49,7 +49,7 @@ export default {
       default: false,
     },
   },
-  emits: ["favourite-action"],
+  emits: ["favourite-action", "delete-contact"],
   data() {
     return {
       detailsAreVisible: false,

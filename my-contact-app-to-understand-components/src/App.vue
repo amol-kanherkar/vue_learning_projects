@@ -1,18 +1,18 @@
 <template>
   <section>
     <header>
-      <h1>My Friends</h1>
+      <h1>My contacts</h1>
     </header>
-    <add-contact @add-new-friend="addNewFriend"></add-contact>
+    <add-contact @add-new-contact="addNewcontact"></add-contact>
     <ul>
       <contact-details
-        v-for="friend in friends"
-        :key="friend.id"
-        :id="friend.id"
-        :name="friend.name"
-        :phone-number="friend.mobile"
-        :email-address="friend.email"
-        :is-favourite="friend.isfavourite"
+        v-for="contact in contacts"
+        :key="contact.id"
+        :id="contact.id"
+        :name="contact.name"
+        :phone-number="contact.mobile"
+        :email-address="contact.email"
+        :is-favourite="contact.isfavourite"
         @favourite-action="favouriteAction"
         @delete-contact="deleteContact"
       ></contact-details>
@@ -23,7 +23,7 @@
 export default {
   data() {
     return {
-      friends: [
+      contacts: [
         {
           id: "1",
           name: "Bodkhe Digambar Ambadas",
@@ -45,24 +45,24 @@ export default {
   },
   methods: {
     favouriteAction(id) {
-      const friend = this.friends.find((fnd) => fnd.id == id);
-      friend.isfavourite = !friend.isfavourite;
+      const contact = this.contacts.find((fnd) => fnd.id == id);
+      contact.isfavourite = !contact.isfavourite;
     },
-    addNewFriend(name, email, mobile) {
-      let id = this.friends.length + 1;
-      console.log(this.friends.length);
-      const newFriend = {
+    addNewcontact(name, email, mobile) {
+      let id = this.contacts.length + 1;
+      console.log(this.contacts.length);
+      const newcontact = {
         id: id,
         name: name,
         email: email,
         mobile: mobile,
         isfavourite: false,
       };
-      this.friends.push(newFriend);
-      console.log(this.friends);
+      this.contacts.push(newcontact);
+      console.log(this.contacts);
     },
     deleteContact(id) {
-      this.friends = this.friends.filter((friend) => friend.id !== id);
+      this.contacts = this.contacts.filter((contact) => contact.id !== id);
     },
   },
 };

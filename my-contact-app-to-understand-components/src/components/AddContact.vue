@@ -15,7 +15,7 @@
       />
     </div>
     <div>
-      <button @click.prevent="addNewFriend">Add Friend</button>
+      <button @click.prevent="addNewcontact">Add contact</button>
     </div>
   </form>
 </template>
@@ -25,8 +25,8 @@ export default {
     return {};
   },
   methods: {
-    addNewFriend() {
-      this.$emit("add-new-friend", this.name, this.email, this.mobile);
+    addNewcontact() {
+      this.$emit("add-new-contact", this.name, this.email, this.mobile);
       this.name = this.email = this.mobile = "";
     },
   },
